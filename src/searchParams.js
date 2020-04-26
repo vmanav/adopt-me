@@ -10,12 +10,14 @@ const SearchParams = () => {
     const [location, setLocation] = useState("Seattle, WA");
     // const [animal, setAnimal] = useState("dog");
     // const [breed, setBreed] = useState("");
-    const [animal, AnimalDropDown] = useDropdown("Animal", "dog", ANIMALS);
-    const [breed, BreedDropDown] = useDropdown("Breed", "", breeds);
 
     // This is a Custom Hook 
-    const [breeds, setBreeds] = useState([]); // InitiallyEmpty
-    // const [animal, AnimalDropdown] =    
+    const [breeds, setBreeds] = useState([]);
+    // Initially Empty
+
+    const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
+    const [breed, BreedDropdown] = useDropdown("Breed", "", breeds);
+
 
     return (
         <div className="search-params">
@@ -31,9 +33,9 @@ const SearchParams = () => {
                     />
                 </label>
 
-                <AnimalDropDown />
+                <AnimalDropdown />
 
-                <BreedDropDown />
+                <BreedDropdown />
 
                 <button>Submit</button>
             </form>
