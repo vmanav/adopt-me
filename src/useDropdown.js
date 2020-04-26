@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 
+// This is a kind of a Genric DropDown Component
 const useDropdown = (label, defaultState, options) => {
 
     const [state, setState] = useState(defaultState);
+
     const id = `use-dropdown-${label.replace(" ", " ").toLowerCase()}`;
+
     const Dropdown = () => {
         return (
             <label htmlFor={id}>
@@ -27,5 +30,6 @@ const useDropdown = (label, defaultState, options) => {
     };
 
     return [state, Dropdown, setState];
+};
 
-}
+export default useDropdown;
