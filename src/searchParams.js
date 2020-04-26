@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import pet, { ANIMALS } from '@frontendmasters/pet';
 import useDropdown from './useDropdown';
 import { render } from 'react-dom';
+import Results from './Results';
 
 const SearchParams = () => {
 
@@ -16,6 +17,21 @@ const SearchParams = () => {
 
     const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
     const [breed, BreedDropdown, setBreed] = useDropdown("Breed", "", breeds);
+
+    // This`pets` rerpesents set f pets we have got back from the API
+    const [pets, setPets] = useState([]);
+
+    // Asynchronus Function (Promise Returning)
+    async function requestPets() {
+        const { animals } = await pet.animals({
+            location,
+            breed,
+            type: animal
+        });
+
+        setPets(animals || []);
+    }
+
 
     // useEffect() is scheduling this function to run after the render happems
     // useEffect(() => {
@@ -47,7 +63,10 @@ const SearchParams = () => {
 
     return (
         <div className="search-params">
-            <form>
+            <form onSubmit={(event) => {
+                event.preventDefault();
+                requestPets();
+            }} >
                 <label htmlFor="location">
                     Location
                     <input
@@ -64,6 +83,7 @@ const SearchParams = () => {
 
                 <button>Submit</button>
             </form>
+            <Results pets={pets} />
         </div>
     );
 };
