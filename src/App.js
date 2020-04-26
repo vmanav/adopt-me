@@ -31,10 +31,12 @@ const App = () => {
     // );
 
     return (
-        <div>
-            <h1 id="thats my div">Adopt Me !</h1>
-            <SearchParams />
-        </div >
+        <React.StrictMode>
+            <div>
+                <h1 id="thats my div">Adopt Me !</h1>
+                <SearchParams />
+            </div >
+        </React.StrictMode>
     )
 };
 
