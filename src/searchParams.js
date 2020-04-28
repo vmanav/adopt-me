@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import pet, { ANIMALS } from '@frontendmasters/pet';
 import useDropdown from './useDropdown';
 import Results from './Results';
+import ThemeContext from './ThemeContext';
+
 
 const SearchParams = () => {
 
@@ -19,6 +21,9 @@ const SearchParams = () => {
 
     // This`pets` rerpesents set f pets we have got back from the API
     const [pets, setPets] = useState([]);
+
+    // using theme ThemeContext
+    const [theme, setTheme] = useContext(ThemeContext);
 
     // Asynchronus Function (Promise Returning)
     async function requestPets() {
@@ -80,10 +85,25 @@ const SearchParams = () => {
 
                 <BreedDropdown />
 
-                <button>Submit</button>
+                <label htmlFor="theme">
+                    Theme
+                    <select
+                        value={theme}
+                        onChange={event => setTheme(event.target.value)}
+                        onBlur={event => setTheme(event.target.value)}
+
+                    >
+                        <option value="peru">Peru</option>
+                        <option value="darkblue">Dark Blue</option>
+                        <option value="chartreuse">Chartreuse</option>
+                        <option value="mediumorchid">Medium Orchid</option>
+                    </select>
+                </label>
+
+                <button style={{ backgroundColor: theme }}>Submit</button>
             </form>
             <Results pets={pets} />
-        </div>
+        </div >
     );
 };
 
