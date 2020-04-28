@@ -38,7 +38,6 @@ const App = () => {
     // Configuting Theme Hook
     const themeHook = useState('blue');
 
-
     return (
         <React.StrictMode>
             <ThemeContext.Provider value={themeHook}>
