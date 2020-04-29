@@ -1,4 +1,3 @@
-***
 <h1 align="center">Adopt-Me</h1>
 <h4 align="center">Pet Adoption Interface</h4>
 
