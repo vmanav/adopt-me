@@ -25,18 +25,24 @@ Adopt-Me is a React based Pet Adoption Interface which allows users to explore t
 
 ## Usage
 
-### 1. Clone the Repository
+#### 1. Clone the Repository
 
 	https://github.com/vmanav/adopt-me.git
 	cd adopt-me
 
-### 2. Install Dependencies
+#### 2. Install Dependencies
 
 	npm  i
 
-### 3. Start Project
+#### 3. Start Project
 
 	npm run dev
+
+## Gallery
+
+|![Application Demo](/public/demo.gif)|
+|:-------:|
+|*Application Demo*|
 
 ## Author
 
