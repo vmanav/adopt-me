@@ -19,7 +19,7 @@
 
 ## About
 
-Adopt-Me is a **_React_** based Pet Adoption Interface which allows users to explore through a range of pets avalaible for adoption for a particular region(_currently limited to **Seattle**_).
+Adopt-Me is a **_React_** based Pet Adoption Interface which allows users to explore through a range of pets available for adoption for a particular region(_currently limited to **Seattle**_).
 <br />
 >This Project is a part of *[Complete Intro to React, v5](https://frontendmasters.com/courses/complete-react-v5/)* &nbsp; from &nbsp; [Frontend Masters](https://frontendmasters.com/).
 
