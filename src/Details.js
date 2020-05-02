@@ -105,6 +105,7 @@ class Details extends React.Component {
 }
 
 export default function DetailsWithErrorBoundary(props) {
+    // console.log("CONFUSION KI JAGA PE PROPS => ", props);
     return (
         // Error Boundary wraps up the full Deatisl Component
         < ErrorBoundary >
