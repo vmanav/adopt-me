@@ -8,8 +8,8 @@ import ThemeContext from './ThemeContext';
 
 class Details extends React.Component {
 
-    // LEFT  OUT =>
-    // Configuring bable for Parcel to make this work : `state = { loading: true }``
+    // LEFT  OUT :
+    // => Configuring bable for Parcel to make this work : `state = { loading: true }``
 
     constructor(props) {
         super(props);
@@ -23,6 +23,8 @@ class Details extends React.Component {
         this.adopt = this.adopt.bind(this);
     }
 
+
+    // jo path ki id hai vo props me ajati hai
     componentDidMount() {
         pet.animal(this.props.id)
             .then(({ animal }) => {
@@ -60,7 +62,7 @@ class Details extends React.Component {
         // Destructuring
         const { animal, breed, location, description, media, name, showModal } = this.state;
 
-        console.log("State of Modal before render", this.state.showModal);
+        // console.log("State of Modal before render", this.state.showModal);
 
         return (
             <div className="details">

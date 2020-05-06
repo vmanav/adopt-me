@@ -2,19 +2,6 @@ import React from 'react';
 import { Link } from '@reach/router';
 
 const Pet = ({ name, animal, breed, media, location, id }) => {
-    // return React.createElement("div", {}, [
-    //     React.createElement("h1", {}, name),
-    //     React.createElement("h2", {}, animal),
-    //     React.createElement("h2", {}, breed),
-    // ]);
-    // return (
-    //     <div>
-    //         <h1><i>Name : {name}</i></h1>
-    //         <h2>Animal : {animal}</h2>
-    //         <h2>Breed : {breed}</h2>
-    //     </div>
-    // )
-
     let hero = 'http://placecorgi.com/300/300';
     if (media.length) {
         hero = media[0].small;
@@ -34,3 +21,17 @@ const Pet = ({ name, animal, breed, media, location, id }) => {
 };
 
 export default Pet;
+
+// Old Pet Component
+// return React.createElement("div", {}, [
+//     React.createElement("h1", {}, name),
+//     React.createElement("h2", {}, animal),
+//     React.createElement("h2", {}, breed),
+// ]);
+// return (
+//     <div>
+//         <h1><i>Name : {name}</i></h1>
+//         <h2>Animal : {animal}</h2>
+//         <h2>Breed : {breed}</h2>
+//     </div>
+// )

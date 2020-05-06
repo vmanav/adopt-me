@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 
-// This is a kind of a Genric DropDown Component
+// This is a kind of a Genric DropDown Component with the use of Hooks
 const useDropdown = (label, defaultState, options) => {
 
+    // Creating Hook
     const [state, setState] = useState(defaultState);
 
+    // Making a custom id for html element
     const id = `use-dropdown-${label.replace(" ", " ").toLowerCase()}`;
 
     const Dropdown = () => {
@@ -29,6 +31,7 @@ const useDropdown = (label, defaultState, options) => {
         );
     };
 
+    // This Returns the `state`,` Dropdown Component` and a `setState function` to change the state
     return [state, Dropdown, setState];
 };
 

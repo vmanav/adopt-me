@@ -12,14 +12,14 @@ const SearchParams = () => {
     // console.log("state of location : ", location);
     const [location, setLocation] = useState("Seattle, WA");
 
-    // This is a Custom Hook 
     const [breeds, setBreeds] = useState([]);
-    // Initially Empty
 
+    // This is a Custom Hook 
+    // Initially Empty
     const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
     const [breed, BreedDropdown, setBreed] = useDropdown("Breed", "", breeds);
 
-    // This`pets` rerpesents set f pets we have got back from the API
+    // This `pets` rerpesents set of pets we have got back from the API
     const [pets, setPets] = useState([]);
 
     // using theme ThemeContext
@@ -27,15 +27,17 @@ const SearchParams = () => {
 
     // Asynchronus Function (Promise Returning)
     async function requestPets() {
+
+        // Passing the `location`, `breed` and `type: animal` to the API for filtering searches
         const { animals } = await pet.animals({
             location,
             breed,
             type: animal
         });
 
+        // set Pets using Hook
         setPets(animals || []);
     }
-
 
     // useEffect() is scheduling this function to run after the render happems
     // useEffect(() => {
@@ -47,7 +49,8 @@ const SearchParams = () => {
     // // Immeditialy show something to the screen
     // How we actually do this -->
     useEffect(() => {
-        // clear out exisitng ones
+
+        // clear out exisitng Breeds
         setBreeds([]);
         setBreed("");
 
@@ -57,13 +60,15 @@ const SearchParams = () => {
                 // console.log("Promise ke Andar =>", breeds);
                 let objectKiBreeds = result.breeds;
                 const breedStrings = objectKiBreeds.map((breedObject) => breedObject.name);
+                // setting Breeds
                 setBreeds(breedStrings);
             }, error => console.error(error));
     }, [animal, setBreed, setBreeds]);
-    // useEffect will re-render depend on changes with these
-    // yaha pe vo angi jo use hui ho inside useEffect()
-    // Agar yaha pe[], emmpty dedi fir infnite hota rahega, update pe render fir upadte fir render
+    // => we know that `setBreed` and `setBreeds` are functions and will not change, but still prser demnds them
 
+    // => useEffect will re-render depend on changes with these
+    // yaha pe vo angi jo use hui ho inside useEffect()
+    // => Agar yaha pe[], emmpty dedi fir it will only run for the first time and not after that.
 
     return (
         <div className="search-params">
@@ -108,3 +113,47 @@ const SearchParams = () => {
 };
 
 export default SearchParams;
+
+// Old Code for Animal Dropdown
+{/*
+    <label htmlFor="animal">
+    Animal
+        <select
+            id="animal"
+            value={animal}
+            onChange={event => setAnimal(event.target.value)}
+            onBlur={event => setAnimal(event.target.value)}
+        >
+            <option>All</option>
+            {
+                ANIMALS.map((singleAnimal) => {
+                    return (
+                        <option key={singleAnimal} value={singleAnimal}>{singleAnimal}</option>
+                    )
+                })
+            }
+    </select>
+</label> */
+}
+
+// Old Code for Breed Dropdown
+{/* <label htmlFor="breed">
+        Breed
+        <select
+            id="breed"
+            value={breed}
+            onChange={event => setBreed(event.target.value)}
+            onBlur={event => setBreed(event.target.value)}
+            disabled={breeds.length === 0} // true if breeds.length is ZERO
+        >
+            <option>All</option>
+            {breeds.map((singleBreed) => {
+                return (
+                    <option key={singleBreed} value={singleBreed}>{singleBreed}
+                        {singleBreed}
+                    </option>
+                )
+            })}
+        </select>
+</label> */
+}
