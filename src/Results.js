@@ -2,7 +2,7 @@ import React from 'react';
 import Pet from './Pet';
 const Results = ({ pets }) => {
 
-    console.log("pets in Result.js => ", pets);
+    // console.log("pets in Result.js => ", pets);
 
     return (
         <div className="search">
@@ -10,7 +10,7 @@ const Results = ({ pets }) => {
                 pets.map((singelPet) => {
                     return (
                         <Pet
-                            animal={singelPet.tyepe}
+                            animal={singelPet.type}
                             key={singelPet.id}
                             name={singelPet.name}
                             breed={singelPet.breeds.primary}

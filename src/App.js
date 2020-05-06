@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 // import Pet from './Pet';
 // We are using the REACH Router
 import { Router, Link } from "@reach/router";
 import SearchParams from './searchParams';
 import Details from './Details';
+import ThemeContext from './ThemeContext';
 
 
 const App = () => {
@@ -34,17 +35,22 @@ const App = () => {
     //     ]
     // );
 
+    // Configuting Theme Hook
+    const themeHook = useState('blue');
+
     return (
         <React.StrictMode>
-            <div>
-                <header>
-                    <Link to="/">Adopt Me !</Link>
-                </header>
-                <Router>
-                    <SearchParams path="/" />
-                    <Details path="/details/:id" />
-                </Router>
-            </div >
+            <ThemeContext.Provider value={themeHook}>
+                <div>
+                    <header>
+                        <Link to="/">Adopt Me !</Link>
+                    </header>
+                    <Router>
+                        <SearchParams path="/" />
+                        <Details path="/details/:id" />
+                    </Router>
+                </div >
+            </ThemeContext.Provider>
         </React.StrictMode >
     )
 };

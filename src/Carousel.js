@@ -35,6 +35,7 @@ class Caraousel extends React.Component {
     };
 
     render() {
+        // getting from state
         const { photos, active } = this.state;
 
         return (
