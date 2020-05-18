@@ -35,7 +35,8 @@ const App = () => {
     //     ]
     // );
 
-    // Configuting Theme Hook
+    // Configuring Theme Hook
+    // we are grabbing the whole Array of value and updater function
     const themeHook = useState('blue');
 
     return (
